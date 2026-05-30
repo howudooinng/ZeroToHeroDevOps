@@ -1,3 +1,6 @@
+
+*****************************************************************************************************************************************************************************************
+
 #This section to be used to set up SSH connection from local to remote for GIT and GITHUB
 
 #Install Git for MacOS
@@ -81,12 +84,21 @@ git clone git@github.com:user.name/clone-repo-name.git
 cd my-first-repo
 
 #Verify the connection
-git remote -v
+git remote -v --> to check the upto date status 
 
 output-
 origin  git@github.com:howudooinng/my-first-repo.git (fetch)
 origin  git@github.com:howudooinng/my-first-repo.git (push)
 
+git branch --> to check the current branch
+
+
+#now if somechanges are made to the remote repo, the current setup will allow you to pull those changes via the ssh - connecton, and allows you to use the git pull command 
+
+git pull origin main --> pulls all the changes made to the remote repo to the local and makes the updates locally
+
+
+******************************************************************************************************************************************************************************************
 
 
 
