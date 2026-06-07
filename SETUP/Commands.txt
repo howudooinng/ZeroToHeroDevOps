@@ -1,0 +1,301 @@
+Here is your command list with numbering added:
+
+1.  clear
+2.  ls
+3.  touch devops
+4.  rm devops
+5.  aws version
+6.  aws cli
+7.  sudo apt install awscli
+8.  sudo apt update
+9.  sudo apt install -y unzip curl
+10. curl "[https://awscli.amazonaws.com/awscli-exe-linux-x86\_64.zip](https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip)" -o "awscliv2.zip"
+11. unzip awscliv2.zip
+12. sudo ./aws/install
+13. aws --version
+14. aws configure
+15. aws s3 mb abhishek12335567
+16. aws s3api create-bucket   --bucket howudooinng-devops-2026   --region us-east-1
+17. aws s3api delete-bucket   --bucket howudooinng-devops-2026   --region us-east-1
+18. history
+19. pwd
+20. cd
+21. cd ..
+22. cd home
+23. cd ubuntu/
+24. cd aws
+25. cd install
+26. /
+27. cd /
+28. cd home/ubuntu
+29. ls -ltr
+30. mkdir master\_devops
+31. cd master\_devops/
+32. vi Roadmap
+33. cat Roadmap
+34. free
+35. free -mg
+36. free -g
+37. df -h
+38. top
+39. touch first-shell-script.sh
+40. man touch
+41. man ls
+42. hostory
+43. history clear
+44. vim first-shell-script.sh
+45. vim second-shell-script.sh
+46. cd ms
+47. vi first-shell-script.sh
+48. vim -r first-shell-script.sh
+49. cat first-shell-script.sh
+50. cat second-shell-script.sh
+51. sh first-shell-script.sh
+52. ./ first-shell-script.sh
+53. ./first-shell-script.sh
+54. sh second-shell-script.sh
+55. mkdir myfirstfolder
+56. ls -ltra
+57. cd myfirstfolder/
+58. cd
+59. ls -l
+60. chmod 700 myfirstfolder/
+61. chmod 777 myfirstfolder/
+62. chmod 775 myfirstfolder/
+63. vim sample-shell-script.sh
+64. chmod 777 sample-shell-script.sh
+65. ./sample-shell-script.sh
+66. clear
+67. chmod 777 first-shell-script.sh
+68. chmod 777 second-shell-script.sh
+69. ./second-shell-script.sh
+70. cat sample-shell-script.sh
+71. cd script/
+72. rm -r script
+73. rm -d script/
+74. rm -r
+75. rm -r firstfile secondfile
+76. s
+77. echo "this is my file" \> myfile.txt
+78. rm myfile.txt
+79. cd mas
+80. mkdir delete
+81. rm -r delete
+82. vim linefile.txt
+83. head linefile.txt
+84. tail linefile.txt
+85. tail -f linefile.txt
+86. less linefile.txt
+87. more linefile.txt
+88. cp linefile.txt master\_devops/
+89. cp linefile.txt script/
+90. cp -r myfirstfolder/ master\_devops/
+91. cd ,ast
+92. rm -r myfirstfolder/
+93. mv master\_devops/ master\_devops\_linux/
+94. cd master\_devops\_linux/
+95. wc linefile.txt
+96. echo "this is softlink" \> thirdfile.txt
+97. cat thirdfile.txt
+98. ln -s /home/ubuntu/master\_devops\_linux/myfirstfolder/thirdfile.txt softlink-file
+99. cat softlink-file
+100. rm thirdfile.txt
+101. touch thirdfile.txt
+102. echo "This is testing for hardlink" \> thirdfile.txt
+103. ln /home/ubuntu/master\_devops\_linux/myfirstfolder/thirdfile.txt hardlink
+104. cat gard
+105. cd hard
+106. cd hardlink
+107. cat hardlink
+108. cat secondfile
+109. echo "This is thr firstfile" \> firstfile
+110. echo "This is the second file" \> secondfile
+111. cat firstfile
+112. vim firstfile
+113. vim secondfile
+114. cut -b 1 firstfile
+115. cut -b 1-5 firstfile
+116. cat linefile.txt
+117. sort linefile.txt
+118. diff firstfile secondfile
+119. wc firstfile secondfile linefile.txt
+120. df
+121. du
+122. df -v .aws
+123. du -v .
+124. ls -a
+125. ps
+126. fuser
+127. fuser .
+128. free -h
+129. uname
+130. uptime
+131. who
+132. tty
+133. kill -9 pts/0
+134. claer clear
+135. whoami
+136. date
+137. which
+138. bash --version
+139. which bash
+140. which cp
+141. id
+142. cd /etc
+143. cat /etc/passwd
+144. cd root
+145. sudo cd root
+146. shutdown
+147. sudo reboot
+148. apt
+149. apt install docker.io
+150. sudo apt install docker.io
+151. sudo apt-get update
+152. sudo apt-get docker.io
+153. sudo apt-get install docker.io
+154. docker --version
+155. which docker
+156. sudo apt-get install jenkins
+157. sudo apt install -y openjdk-17-jdk
+158. java --verson
+159. java -version
+160. curl -fsSL [https://pkg.jenkins.io/debian/jenkins.io-2023.key](https://pkg.jenkins.io/debian/jenkins.io-2023.key) | sudo tee   /usr/share/keyrings/jenkins-keyring.asc \> /dev/null
+161. echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]  
+     [https://pkg.jenkins.io/debian](https://pkg.jenkins.io/debian) binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list \> /dev/null
+162. sudo apt install -y jenkins
+163. sudp apt-get install -y jenkins
+164. sudo apt-get install -y jenkins
+165. cat /etc/apt/sources.list.d/jenkins.list
+166. sudo rm -f /etc/apt/sources.list.d/jenkins.list
+167. echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] [https://pkg.jenkins.io/debian](https://pkg.jenkins.io/debian) binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list \> /dev/null
+168. apt-cache policy jenkins
+169. sudo apt-get installl -y jenkins
+170. sudo apt-get install -y Jenkins
+171. sudp rm -r docker.io
+172. sudo rm -r docker.io
+173. sudo rm docker.io
+174. rm docker.io
+175. docker -version
+176. useradd -m jethlal
+177. sudo useradd -m jethlal
+178. sudo passwd jethalal
+179. sudo passwd jethlal
+180. su jethlal
+181. sudo userdel jethlal
+182. sudo useradd jethalal
+183. sudo useradd iyer
+184. sudo useradd tappu
+185. sudo useradd bhide
+186. sude groupadd devops
+187. sudo groupadd devops
+188. su iyer
+189. exit
+190. cat /etc/group
+191. sudo groupadd tester
+192. sudo gpasswd jethalal devops
+193. sudo gpasswd -a jethalal devops
+194. sudo gpasswd -a ubuntu  devops
+195. cat /etc/grouo
+196. sudo gpasswd -M iyer,tappu,bhide tester
+197. sudo groupdel tester
+198. mkdir devops\_permission
+199. chmod 000 devops\_permission/
+200. umask
+201. sudo apt install zip
+202. zip -r ldf.zip devops\_permission/
+203. cat secret\_file.txt
+204. ls -
+205. ping trainwithshubham.com
+206. ping google.com
+207. netstat
+208. sudo install net-tools
+209. sudo apt-get install net-tools
+210. ifconfig
+211. traceroute
+212. traceroute youtube.com
+213. sudo apt-get install traceroute
+214. sudo apt install inetutils-traceroute
+215. tracepath youtube.com
+216. mtr youtube.com
+217. nslookup youtube.com
+218. telnet youtube.com 80
+219. ip
+220. ip address show
+221. iwconfig
+222. sudo apt install wireless-tools
+223. ss
+224. dig trainwithshubham
+225. whois trainwithshubhma
+226. sudo apt install whois
+227. whois trainwithshubham
+228. whois trainwithshubham.com
+229. whois google.com
+230. arp
+231. ifplugstatus
+232. sudo apt install ifplugstatus
+233. sudo apt install ifplugd
+234. curl -X GET [suspicious link removed]
+235. curl -X GET [suspicious link removed] | jq
+236. jq --version
+237. sudp apt-get update -y
+238. sudo apt-get update -y
+239. mkdir downloads
+240. cd downloads/
+241. wget [https://filesamples.com/samples/document/csv/sample4.csv](https://filesamples.com/samples/document/csv/sample4.csv)
+242. cat sample4.csv
+243. cat sample4.csv | jq
+244. mv secret\_file.txt master\_devops\_linux/
+245. mv second-shell-script.sh, secret\_file.txt downloads
+246. mv first-shell-script.sh dowloads
+247. cd dowloads
+248. cat dowloads
+249. rm dowloads
+250. mv second-shell-script.sh downloads/
+251. mv Roadmap downloads/
+252. mv ldf.zip downloads/
+253. watch top
+254. watch top -n 5
+255. watch -n 5 top
+256. watch -n 10 top
+257. nmap
+258. nmap trainwithshubham.com
+259. nmap trainwithshubhma.com
+260. nmap google.com
+261. nmap amazon.com
+262. nmap easemytrip.com
+263. mkdir linux\_advanced
+264. cd linux\_advanced/
+265. vim app.log
+266. cat app.log
+267. head -n 2 app.log
+268. awk '{print}' app.log
+269. awk '{print $1}' app.log
+270. awk '{print $1,$2}' app.log
+271. awk '{print $1,$2,$4}' app.log
+272. awk '{print $5,$6,$7}' app.log
+273. awk '/CSVDataSender.sendCSVData/ {print $5,$6,$7}' app.log
+274. awk '/CSVDataSender.sendCSVData/ {print $5,$6,$7}' app.log \> CSVDATA.log
+275. cat CSVDATA.log
+276. cat CSv
+277. awk '/INFO,DEBUG/ {print}' app.log
+278. awk '/INFO/ {print}' app.log
+279. awk '/INFO|DEBUG/ {print}' app.log
+280. awk '/INFO/  {print \> "info.log"}
+281. /DEBUG/ {print \> "debug.log"}' app.log
+282. rm CSVDATA.log
+283. cat debug.log
+284. cat info.log
+285. awk '/INFO/ {count+=} END {print count} app.log
+286. awk '/INFO/ {count+=} END {print count}' app.log
+287. awk '/INFO/ {count++} END {print count}' app.log
+288. awk '/INFO/ {count++} END {print "The count is" = count}' app.log
+289. awk '/INFO/ {count++} END {print The count is = count}' app.log
+290. awk '/INFO/ {count++} END {print "The count is", = count}' app.log
+291. awk '/INFO/ {count++} END {print "The count is", count}' app.log
+292. history \> commands.txt
+  742  grep INFO app.log 
+  743  grep -i info app.log 
+  744  grep -i -c info app.log 
+  745  ps aux
+  746  ps aux | grep ubuntu 
+  748  ps aux | grep ubuntu | awk '{print $2}' app.log 
