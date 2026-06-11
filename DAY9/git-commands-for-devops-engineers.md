@@ -27,10 +27,26 @@ git push -u origin master  What it did
 https and ssh
  Clone vs Fork —> git is a distributed version control system, so multiple replicas can be on different machines. so forking is a way you can collaborate on a repository by creating a copy of it, clone is used to download a specific repo 
 
-main —> new branch   most of the times, people tend to work on different things, ex - calculator application is delivered, now their is new requirement, which needs to be added the calculator application which is very huge, for a new feature, create a new branch, so that we don’t touch the main branch in order to keep the existing application stable and running without any issues 
+main —> new branch 
+most of the times, people tend to work on different things
+
+ex - calculator application is delivered, now their is a new requirement which needs to be added the calculator application which is very huge for a new feature, create a new branch, so that we don’t touch the main branch in order to keep the existing application stable and running without any issues.
 
 
-create a branch - git checkout -b <branch name>
+create a branch --> git checkout -b <branch name>
+using branching concept, we can separate the development activities.
+
+How to merge the Branches --> What is this concept ?
+
+-- git merge 
+-- git rebase -->
+
+-- git cherry-pick --> git log <merge-branch-name> --> this command basically can pick only the commit you want to merge with the main branch, like selecting a particular commit using the commit id of that commit from that new branch and then merge it with the main branch.
+Why using merge or rebase -- cherry-pick is easy when you have one or two commits, it is not practically possible, to cherry pick where there are 50-60 thousands commits.
+
+
+
+
 
 
  
