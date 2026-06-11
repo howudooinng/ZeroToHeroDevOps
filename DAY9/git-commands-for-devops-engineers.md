@@ -4,7 +4,12 @@ Day - 11
 
 .git/hooks/pre-commit  To track the files - we need to use git add < file name >, due to tis git nows understands that it has to track this file now.  Git helps in versioning and tracking of the changes.  git add . —> adds all the untracked files to tracked state 
 
-git commit -m “message” —> commits the changes, and using this we can go back to any change done is not required. git log —> shows the changes done i.e the commits done  git push —> end goal is to push the code from local to the distributed system, so that everyone can use that code  git workflow —> git add && git commit -m “” && git push  how to create a new repo from local to remote:  git remote add <github url/(repo name)>  so I decided to push my local change to an already existing git repo but I was facing issues while doing it, and it got resolved by using   git pull origin master --rebase && git push -u origin master  these 2 commands which asked me to give my github username and the PAT which I had to generate from the classic token generation option 
+git commit -m “message” —> commits the changes, and using this we can go back to any change done is not required. 
+git log —> shows the changes done i.e the commits done  
+git push —> end goal is to push the code from local to the distributed system, so that everyone can use that code  
+git workflow —> git add && git commit -m “” && git push  
+How to create a new repo from local to remote: git remote add <github url/(repo name)>  so I decided to push my local change to an already existing git repo but I was facing issues while doing it, and it got resolved by using  
+git pull origin master --rebase && git push -u origin master  these 2 commands which asked me to give my github username and the PAT which I had to generate from the classic token generation option 
 
 and it got rebased and the changes are reflecting fine 
 
