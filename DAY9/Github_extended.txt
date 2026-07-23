@@ -1,2 +1,7 @@
 #Proper understanding of the Branching,
 #merging, rebasing and related concepts
+
+
+For any New functionaility we create a new branch and so that we don't touch the main branch before proper 
+Development and Testing.
+

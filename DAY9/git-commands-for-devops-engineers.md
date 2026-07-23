@@ -31,7 +31,9 @@ git push -u origin masterWhat it did
 * Then pushed successfully
 Investigate more About rebase vs merge concepts for git repos.How to create a Repo from cli?What is a git lifecycle?What is git clone ?
 git clone is used to pull the code from remote to local.
+
 https and ssh
+
 Clone vs Fork —> git is a distributed version control system, so multiple replicas can be on different machines. so forking is a way you can collaborate on a repository by creating a copy of it, clone is used to download a specific repo
 
 main —> new branch 
@@ -49,7 +51,17 @@ How to merge the Branches --> What is this concept ?
 -- git rebase -->
 
 -- git cherry-pick --> git log <merge-branch-name> --> this command basically can pick only the commit you want to merge with the main branch, like selecting a particular commit using the commit id of that commit from that new branch and then merge it with the main branch.
-Why using merge or rebase -- cherry-pick is easy when you have one or two commits, it is not practically possible, to cherry pick where there are 50-60 thousands commits.
+
+
+Why using merge or rebase -- easy way to do things.
+
+cherry-pick is easy when you have one or two commits, 
+
+it is not practically possible, to cherry pick where there are 50-60 thousands commits.
+
+
+
+
 
 
 
