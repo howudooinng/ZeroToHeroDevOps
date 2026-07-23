@@ -1,13 +1,13 @@
 Day - 6
 
-Linux Operating System and Basics of Shell Scripting 
+Linux Operating System and Basics of Shell Scripting
 
-What is an operating system?  Purchase a Hardware — cpu — ram — i/o(hard disk or ssd)  Gaming Jenkins
-Some softwares   You have software which you have to run on the hardware.  OS - bridge between software and hardware.  
+What is an operating system?Purchase a Hardware — cpu — ram — i/o(hard disk or ssd)GamingJenkins
+Some softwares You have software which you have to run on the hardware.OS - bridge between software and hardware. 
 LINUX, WINDOWS, MAC OS - all these are Operating systems.
 
-USER —> APPLICATION —> Operating System —>  Hardware   and Vice Versa
-  This is the life cycle.
+USER —> APPLICATION —> Operating System —>  Hardware and Vice Versa
+ This is the life cycle.
  
 Why LINUX?
 — its a free OS
@@ -27,7 +27,7 @@ Architecture of LINUX:
 — Compilers, User processors, System Related Softwares
 
 
-What is Shell Scripting ? 
+What is Shell Scripting ?
 Commands through which we talk to linux os is called as Shell Commands/Scripting
 
 Popular Shell Commands:
@@ -59,15 +59,15 @@ vi/vim — to open the file to write into the file which got created
 
 vi is by default available, vim has to e installed to be used
 
-Why use touch/vi — commands? touch command is used mostly in touch commands
-requirements - to create 1000 files, you cant use vim inside your script, as it opens the files during creation, if a lot of files gets opened, linux will run into a problem and that’s why during writing scripts we use touch command to create multiple files as it only creates the file unlike open it if we use vim/vi command.  #!/bin/bash/sh/ksh — called as shebang — need to give this in the script file before writing the script.
-Why we do this she-bang ? bash/dash/sh/ksh - these are executables used to run shell scripts 
+Why use touch/vi — commands?touch command is used mostly in touch commands
+requirements - to create 1000 files, you cant use vim inside your script, as it opens the files during creation, if a lot of files gets opened, linux will run into a problem and that’s why during writing scripts we use touch command to create multiple files as it only creates the file unlike open it if we use vim/vi command.#!/bin/bash/sh/ksh — called as shebang — need to give this in the script file before writing the script.
+Why we do this she-bang ?bash/dash/sh/ksh - these are executables used to run shell scripts 
 most commonly used is — bash
 
 always use INSERT mode to edit the file — so press “i” to go into the insert mode.
 
 How to save a file in Linux - press escape and then :wq!
- echo — command to print something
+echo — command to print something
 
 cat — command to see inside the file 
 
@@ -102,15 +102,15 @@ cp <file name>  <destination folder name>
 
 cp <file path> <destination name>
 
-cp -r cloud/ devops/ ( to copy folder to folder)  mv <file name> ../cloud/ ( moves files from the current folder to the cloud folder a step back )
+cp -r cloud/ devops/ ( to copy folder to folder)mv <file name> ../cloud/ ( moves files from the current folder to the cloud folder a step back )
 
 rename - use the move command only to rename 
 
 wc <filename> output - lines, words, bytes
 
-hard link : a shortcut which can be used to recover the main file even if the main file gets deleted.
+hard link: a shortcut which can be used to recover the main file even if the main file gets deleted.
 
-soft link  : It cannot be recovered if the main file is deleted
+soft link: It cannot be recovered if the main file is deleted
 
 ln -s file-path/ softlink-file
 
@@ -201,13 +201,13 @@ untar — used for unzip
 
 How to copy a file/folder from one server to other  ?
 
-Copying file from Local to EC2 server:  
+Copying file from Local to EC2 server: 
 Syntax:
 scp -i “path of your local server/pem_key_name.pem” file_name ubuntu@ec2 server name:/destination path/
 
-Example: scp -i "/Users/howudooinng/Desktop/devops26.pem" secret_file.txt ubuntu@ec2-3-238-197-158.compute-1.amazonaws.com:/home/ubuntu
+Example:scp -i "/Users/howudooinng/Desktop/devops26.pem" secret_file.txt ubuntu@ec2-3-238-197-158.compute-1.amazonaws.com:/home/ubuntu
 
-Copying folder from Local to EC2 server/ Vice Versa —> so in scenarios of copying from EC2 to local and viceversa, in both cases the scp command should be written on the local host/server, as the local server will initiate the connection for the file transfer.
+Copying folder from Local to EC2 server/ Vice Versa—> so in scenarios of copying from EC2 to local and viceversa, in both cases the scp command should be written on the local host/server, as the local server will initiate the connection for the file transfer.
 
 scp -i “path of your local server/pem_key_name.pem” -r ubuntu@ec2 server name:/destination path/folder name .
 
@@ -263,7 +263,7 @@ Pro Commands for Linux: Advanced Commands:
 AWK — 
 Scenario where we used AWK commands — we can use AWK if we don’t want to use shell script, You get a logfile and you want to extract some data from that log file, we can use AWK to do that.
 
-awk ‘{print $1,$2,$3}’ app.log in awk we need formatted data, like , separated values (CSV), tab separated values tab separated.
+awk ‘{print $1,$2,$3}’ app.login awk we need formatted data, like , separated values (CSV), tab separated values tab separated.
 
 to refer awk commands go to commands notes in this.
 
@@ -294,7 +294,7 @@ mount — / (volume has been bind to a location)
 attach —
 mount and attach are different 
 backup is called as snapshot
- Recommended device names for Linux: /dev/sda1 for root volume. /dev/sd[f-p] for data volumes.
+Recommended device names for Linux: /dev/sda1 for root volume. /dev/sd[f-p] for data volumes.
 
 You attached the volumes but not mounted yet
 
@@ -306,7 +306,7 @@ lvm — logical volume manager
 pvs — to see physical volumes/disks/blocks
 
 pvcreate /dev/xvdf /dev/xvdg /dev/xvdh
- #Create Physical Volumes
+#Create Physical Volumes
 sudo pvcreate /dev/nvme1n1
 sudo pvcreate /dev/nvme2n1
 sudo pvcreate /dev/nvme3n1
@@ -343,7 +343,7 @@ if you have volume attached, we can only use that attached volume, after mountin
 
 unmounting doesn’t lead to data loss 
 
-Commands to directly mount a disk to EC2 instance:  mkdir /mnt/tws_disk_mount — create a path first 
+Commands to directly mount a disk to EC2 instance:mkdir /mnt/tws_disk_mount — create a path first 
 
 mkfs -t ext4 /dev/nvme4n1 — format
 mount /dev/nvme4n1 /mnt/tws_disk_mount/
@@ -359,7 +359,7 @@ lvs, lvdisplay — these run inside lvm
 
 
 
- 
+
 
 
 
