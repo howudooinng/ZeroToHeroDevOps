@@ -1,0 +1,55 @@
+This text file is dedicated to the git branching strategies and understand how 
+merging works in Git and what all scenarios are there where we use merge 
+and where we use rebase. 
+
+
+Suppose there is an application named as UBER which has a main branch with functionality of Cabs.
+
+The product team is now interested in launching bike booking in the app also.
+So, the normal sdlc process will be followed of requirements, design, coding testing and finally
+making the new feature in the application live.
+
+So we CODING part comes, there will be many developers who will be working simultaneously on this bike 
+functionality of uber.
+
+So do they start making changes directly in --> Main Branch ? 
+--> The answer is no and at "Enterprise" level such kind
+of practice is not a good way of doing software development.
+
+What if the team decides to Start making the change for new functionality in the Main branch?
+--> The main application will become unstable as the new code might overlap and create issue for the end users.
+--> If there are 2 developers, then one developer has to wait for the other to finish his changes,
+So that he commits his work and then the second developer starts working.
+-->Production becomes unstable due to these kind of practice and hence a Good branching technique is required to overcome such kind of challeneges.
+
+ENTERPRISE LEVEL WORKFLOW -->
+
+MAIN --> Do not touch 
+    New Fucntionality comes as Bikes --> Create a feature branch named --> feature/Bikes
+        feature/Bikes --> undergoes development and testing
+            Now there are 2 options to either merge or rebase the changes to the MAIN Branch, depends on the organizational WORKFLOW.
+                PR is raised to review the changes and then take the decision of adding the changes to the MAIN branch.
+
+Release Branch --> This branch is created when there is a release to production. The changes
+which are done through many features are in the MAIN branch along with the old production code 
+which is currently running in production.
+
+So, now the release branch has the current commits + the old prod code. so the release branch is 
+now getting tested by the QA team and when they find a bug, it gets fixed only in the release 
+branch and not in the main, after everything is stable in the release branch, it gets deployed 
+to production, and after everything goes well, we merge the release branch to main branch as well
+so that the changes made in the release branch during testing phase gets added as well to the main branch,
+beacause if not done like that, it will again give error in the next release.
+
+
+Now coming to MERGE and REBASE, How it works and why it is important ?
+How organizations use merge and rebase in GIT during project?
+
+Rebase 
+                                       
+
+
+
+
+For any New Functionaility we create a new branch and so that we don't touch the main branch before proper 
+Development and Testing.
