@@ -2,7 +2,6 @@ This text file is dedicated to the git branching strategies and understand how
 merging works in Git and what all scenarios are there where we use merge 
 and where we use rebase. 
 
-
 Suppose there is an application named as UBER which has a main branch with functionality of Cabs.
 
 The product team is now interested in launching bike booking in the app also.
