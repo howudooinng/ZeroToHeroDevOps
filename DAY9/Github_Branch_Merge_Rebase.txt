@@ -45,11 +45,69 @@ beacause if not done like that, it will again give error in the next release.
 Now coming to MERGE and REBASE, How it works and why it is important ?
 How organizations use merge and rebase in GIT during project?
 
-Rebase 
-                                       
+Git rebase → doesn't give any extra commit id and used for making the commit history linear.
+It is commonly used by developers to update their 
+local feature branch with the latest changes from main (or develop) 
+so they work on top of the newest history and reduce merge conflicts later. 
+
+Git merge → gives one extra commit id mentioning git merge 
+It is commonly used to integrate completed work into another branch 
+(e.g., feature → main or develop) after development, testing, and review.
+
+When a commit is done in feature and Pushed to github, github automatically sees that 
+a new commit is there and gives the option to compare and pull request, which 
+can be used to raise a PR, add comments and process ahead with these three options which are:
+
+create a merge commit == git merge <feature_branch_name>
+squash and merge      == 'n' number of commits in feature branch, only 1 in main branch
+rebase and merge      == commits are rebased and merged to main branch 
+
+| Option                    | Merge Commit | Commit History Preserved | Linear History | Typical Use                                              |
+| ------------------------- | ------------ | ------------------------ | -------------- | -------------------------------------------------------- |
+| **Create a merge commit** | ✅ Yes        | ✅ Yes                    | ❌ No           | Long-lived features, preserving branch history           |
+| **Squash and merge**      | ❌ No         | ❌ No (commits combined)  | ✅ Yes          | Small features, clean history                            |
+| **Rebase and merge**      | ❌ No         | ✅ Yes                    | ✅ Yes          | Teams that prefer a linear history without merge commits |
 
 
+When I am merging my feature branch to main branch? 
+Where should I be, On main branch or feature branch 
+To write the git merge command, explain in short ?
 
+You should be on the target branch — the branch into which you want to merge.
 
 For any New Functionaility we create a new branch and so that we don't touch the main branch before proper 
 Development and Testing.
+
+Too much confusion but git rebase and merge is clear now.
+
+proper understanding of the concept along with mini projets to understand the theory 
+with proper practice.
+
+git conflicts --> 
+occurs due to 2 or more people committing in the same files which confuses git during 
+merge and the confusion of git comes out as "MERGE CONFLICT"
+
+2 developers sit and decide which changes will go or rewrite the file. 
+
+Question --
+suppose 2 devs, editing same file, merge conflict happens,
+they both sit down and come to a point where they decide that both the code 
+which they have written, needs to be changed totally, 
+then what happens to that opened merge conflict.. 
+what happens, explain the workflow during this scenario?
+
+--> so when merge conflict happens, the git or vs code editor holds the file in the 
+branch which was being merged, now the two developers sit and decide what needs to be 
+written as a final code.
+
+after things are finalised, conflict is resolved and that conflict feature gets 
+merged to main with the help of PR, and that main and feature are at the same level.
+
+if a change is needed in the earlier feature branch which was merged, then it can be rebased
+but mostly once a feature branch is merged, it gets deleted, so a new feature branch gets 
+created for another change.
+
+
+I have tried to cover everything related to git rebase and merge.
+
+will add if something more comes up.
