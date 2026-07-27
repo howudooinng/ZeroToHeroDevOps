@@ -40,7 +40,6 @@ to production, and after everything goes well, we merge the release branch to ma
 so that the changes made in the release branch during testing phase gets added as well to the main branch,
 beacause if not done like that, it will again give error in the next release.
 
-
 Now coming to MERGE and REBASE, How it works and why it is important ?
 How organizations use merge and rebase in GIT during project?
 
