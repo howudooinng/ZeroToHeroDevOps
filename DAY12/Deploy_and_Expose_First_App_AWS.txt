@@ -1,0 +1,79 @@
+#Deploy and Expose your First App on AWS.
+#Made an app accessible to the internet.
+
+Always refer to the dc=ocumentation while running any new tool.
+
+git clone -- repo to local system, to test the project locally.
+-- this is done 
+
+
+We will have to set some environment variables needed 
+for this project.
+
+In a node.js application we have all the configurations written in a server.js file 
+
+So while coding the server.js file we can't hardcode the config files.
+.env file is where we set that reusable variables, and used to store credentials
+
+STRIPE Integration is there --> Payment gateway is there.
+for that we needed public and secret key, to interact with the api'secret
+
+for that we used .env file
+
+So to run this project locally, I will have to get the publishable and secret key for STRIPE by making 
+an account on STRIPE and create these 2 keys.
+
+after this we can write the .env file 
+
+PORT=3000
+DOMAIN=http://localhost:3000
+STATIC_DIR=./client
+
+PUBLISHABLE_KEY=pk_test_51xxxxxxxxxxxxxxxx(the key is in notes, refer)
+SECRET_KEY=sk_test_51xxxxxxxxxxxxxxxx(the key is in notes, refer)
+
+
+----------------------------------------------------------------------------------
+howudooinng@howudooinngs-MacBook-Air ZeroToHeroDevOps % git add .
+warning: adding embedded git repository: DAY12/AWS-Session
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint:   git submodule add <url> DAY12/AWS-Session
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint:   git rm --cached DAY12/AWS-Session
+hint:
+hint: See "git help submodule" for more information.
+hint: Disable this message with "git config set advice.addEmbeddedRepo false"
+howudooinng@howudooinngs-MacBook-Air ZeroToHeroDevOps % 
+
+What is this error now?
+
+----------------------------------------------------------------------------------
+
+
+I was commiting a repo inside a repo, and that's why this error came.
+Resolution --> 
+
+1) Remove the .git file from the sub repo, and convert it into normal folder,
+removing .git will tell git not to track this, as .git is the 
+folder which gets created after doing git init, so an approach to solve this problem.
+
+2) You want AWS-Session to remain its own independent GitHub repository.
+Then you should not commit it inside ZeroToHeroDevOps.
+Instead, keep working with it separately.
+
+--> one approach, changing name of the Repo, should work?
+--> this will never work because the .git folder will still be there.
+
+
+I my scenario, I have decided to keep the repo as a 
+normal folder and delete the .git folder from it so that 
+git stops tracking it and that repo becomes a normal folder and
+then it can be committed with changes as their will be only one repo existing 
+
