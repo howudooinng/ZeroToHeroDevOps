@@ -77,3 +77,14 @@ normal folder and delete the .git folder from it so that
 git stops tracking it and that repo becomes a normal folder and
 then it can be committed with changes as their will be only one repo existing 
 
+
+"160000 df1f05dcff31244bc68e3b65aa78b24c34816990 0 DAY12/AWS-Session"
+The mode 160000 has a special meaning in Git:
+160000 = This path is a Git submodule (gitlink), not a normal folder.
+Even though you deleted the inner .git folder, your main repository still remembers AWS-Session as a submodule.
+
+Use this command to remove above error :
+
+git rm --cached DAY12/AWS-Session
+
+and then follow normal git add, commit, push 
