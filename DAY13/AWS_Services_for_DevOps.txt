@@ -1,0 +1,72 @@
+This session focusses on AWS Services For DevOps
+
+As a DevOps Engineer we need to be focussed on Improving the 
+efficiency and focus on Automation
+
+AWS Services For DevOps Engineers:
+
+1) EC2(Elastic Cloud Compute)
+2) VPC(Private and Securing the EC2)
+   ---> security groups, CIDR, Subnets, Inbound and Outbound Rules.
+3) EBS(Volumes, Deploy or Attach a Volume to EC2 instances)
+4) S3 Buckets(Storage related services), to enable encryption or not, previosuly it was 
+   decided by the teams or DevOps engineers, but now it gets encrypted by default.
+5) IAM(Used to Manage Access for each and every role and each and every services)
+6) CLoudWatch(Takes care of Constant Monitoring on AWS, anybody is not creating any services without following the compliance rules)
+7) Lambda(Sending mail notifications, Serverless compute)
+         AWS Lambda functions can be created and Tear down automatically.
+             used for short actions or functionalities, which can be executed and tear down automatically.
+8) Cloud Build Services 
+   CI/CD --> Using Jenkins, some services are also provided by AWS to do the CI/CD, 
+   AWS supports CI/CD with the help of below 3 services.
+   --> AWS code Pipeline - Similar To Jenkins Pipeline 
+   --> AWS code Build    - compiling code, run tests, provide software packages and 
+                           fully managed build services
+   --> AWS code Deploy   - Deploying your application to ec2 instance or on premise servers.
+
+There is a legacy application, microservice, and not conatinerised and deployed on ec2.,
+There should be an easy way so that when the artifacts are made, like war files, jar files or etc,
+Now you have to deploy this on EC2 instance, for it to automatically happen, it happens 
+through AWS Code deploy. This is a method through which CI/CD is done through AWS.
+
+If you are completely on AWS, then these services can be used 
+for CI/CD and there is in a way you can work without Jenkins.
+
+or else,
+
+If you have that idea of migrating to Azure or another cloud, then using 
+these aws servives for ci/cd will not be good idea as these are restricted to AWS
+
+
+9) AWS configuration Service -- Guardrails services provided by AWS
+   To manage the configurations.
+
+10) Biling and Costing -- How much organization is spending on various services 
+whose cost can be managed by billing and costing services on AWS.
+
+11) AWS KMS -- To keep your data secure always, secrets and config files 
+needs to be kept secure always, Key - Management - Services
+
+12) Cloud Trail -- is used to enable your operational and risk auditing, stores API logs.
+
+13) AWS EKS - managed Kubernetees Service provided by AWS.
+
+14) FarGate
+
+15) AWS ECS -- Elastic conatiner services, aws proprietary service.
+
+16) AWS ELK -- Elastic search
+
+
+
+
+
+
+
+
+
+
+
+
+
+

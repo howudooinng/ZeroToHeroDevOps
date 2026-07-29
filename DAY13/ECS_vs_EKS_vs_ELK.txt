@@ -1,0 +1,474 @@
+Use case of ECS, EKS and ELK.
+
+These three terms are often confused because they sound similar, but they solve completely different problems.
+
+| Feature             | ECS                       | EKS                        | ELK                                       |
+| ------------------- | ------------------------- | -------------------------- | ----------------------------------------- |
+| Full Form           | Elastic Container Service | Elastic Kubernetes Service | Elasticsearch, Logstash, Kibana           |
+| Category            | Container Orchestration   | Kubernetes Service         | Logging & Monitoring Stack                |
+| Provider            | AWS                       | AWS                        | Originally Elastic (can run anywhere)     |
+| Purpose             | Run Docker containers     | Run Kubernetes clusters    | Collect, store, search and visualize logs |
+| Uses Docker?        | ✅ Yes                     | ✅ Yes                      | ❌ No (monitors Docker logs though)        |
+| Uses Kubernetes?    | ❌ No                      | ✅ Yes                      | ❌ No                                      |
+| Learning Difficulty | Easy                      | Hard                       | Medium                                    |
+| DevOps Importance   | High                      | Very High                  | Very High                                 |
+
+---
+
+# ECS (Elastic Container Service)
+
+## What is it?
+
+ECS is AWS's native container orchestration service.
+
+Imagine you have:
+
+* 20 Docker containers
+* 5 EC2 instances
+
+Instead of manually deciding:
+
+* which container runs where
+* restarting failed containers
+* scaling containers
+
+ECS does everything automatically.
+
+---
+
+## Architecture
+
+```
+Docker Image
+      │
+      ▼
+Task Definition
+      │
+      ▼
+Task
+      │
+      ▼
+Service
+      │
+      ▼
+Cluster
+```
+
+---
+
+## Important Components
+
+| Component         | Meaning                             |
+| ----------------- | ----------------------------------- |
+| Cluster           | Collection of servers               |
+| Task Definition   | Blueprint of container              |
+| Task              | Running container                   |
+| Service           | Keeps desired number of tasks alive |
+| Capacity Provider | EC2 or Fargate                      |
+| Load Balancer     | Routes traffic                      |
+
+---
+
+## Launch Types
+
+### 1. EC2 Launch Type
+
+You manage EC2.
+
+```
+EC2
+ ├── Docker
+ ├── ECS Agent
+ └── Containers
+```
+
+Pros
+
+* Cheapest
+* Full control
+
+Cons
+
+* Manage servers yourself
+
+---
+
+### 2. Fargate Launch Type
+
+AWS manages servers.
+
+```
+Container
+     │
+     ▼
+AWS Infrastructure
+```
+
+Pros
+
+* No server management
+* Pay only while containers run
+
+Cons
+
+* Slightly costlier
+
+---
+
+## Scaling
+
+Automatically based on
+
+* CPU
+* Memory
+* CloudWatch metrics
+
+---
+
+## When to use ECS?
+
+* Simple Docker applications
+* AWS-only companies
+* Microservices
+* Beginners learning containers
+
+---
+
+# EKS (Elastic Kubernetes Service)
+
+## What is it?
+
+EKS is AWS's managed Kubernetes service.
+
+AWS manages the Kubernetes control plane.
+
+You manage worker nodes (or use Fargate).
+
+---
+
+## Architecture
+
+```
+            Kubernetes Control Plane
+                 (Managed by AWS)
+
+          │
+ ┌────────┼─────────┐
+ │        │         │
+Node1   Node2    Node3
+
+ │        │         │
+
+Pods     Pods      Pods
+```
+
+---
+
+## Components
+
+| Kubernetes Term | Meaning                         |
+| --------------- | ------------------------------- |
+| Cluster         | Complete Kubernetes environment |
+| Node            | Machine                         |
+| Pod             | Smallest deployment unit        |
+| Deployment      | Runs desired pods               |
+| ReplicaSet      | Maintains replicas              |
+| Service         | Networking                      |
+| ConfigMap       | Configuration                   |
+| Secret          | Sensitive values                |
+| Namespace       | Isolation                       |
+| Ingress         | External access                 |
+
+---
+
+## Why use Kubernetes?
+
+Because it provides
+
+* Auto healing
+* Rolling updates
+* Rollbacks
+* Scaling
+* Service discovery
+* Scheduling
+* Load balancing
+
+---
+
+## EKS supports
+
+* Helm
+* ArgoCD
+* Istio
+* Prometheus
+* Grafana
+* Fluentd
+* Jenkins
+* GitHub Actions
+
+Almost every CNCF tool works with EKS.
+
+---
+
+## Worker Nodes
+
+Can be
+
+* EC2
+* Fargate
+
+---
+
+## When to use EKS?
+
+* Large production systems
+* Multi-cloud
+* Hybrid cloud
+* Enterprise applications
+* Kubernetes-based organizations
+
+---
+
+# ELK Stack
+
+ELK is completely different.
+
+It has nothing to do with deploying containers.
+
+It is used to collect logs.
+
+---
+
+Suppose your application crashes.
+
+Without ELK:
+
+```
+SSH Server
+
+cat logs.txt
+grep ERROR
+```
+
+Very difficult.
+
+---
+
+With ELK
+
+```
+Server Logs
+
+      │
+
+ Logstash
+
+      │
+
+ Elasticsearch
+
+      │
+
+ Kibana Dashboard
+```
+
+Everything becomes searchable.
+
+---
+
+## ELK Components
+
+| Component     | Purpose                      |
+| ------------- | ---------------------------- |
+| Elasticsearch | Stores logs                  |
+| Logstash      | Collects and transforms logs |
+| Kibana        | Dashboard & visualization    |
+
+---
+
+Nowadays
+
+Many companies use
+
+```
+EFK
+
+Elasticsearch
+Fluentd
+Kibana
+```
+
+or
+
+```
+Elastic Stack
+
+Elasticsearch
+Beats
+Logstash
+Kibana
+```
+
+---
+
+## Elasticsearch
+
+Think of it as Google for logs.
+
+Instead of
+
+```
+grep ERROR logfile.txt
+```
+
+You can search
+
+```
+status:500
+
+OR
+
+service:payment
+
+OR
+
+responseTime>1000
+```
+
+within milliseconds.
+
+---
+
+## Logstash
+
+Collects logs from
+
+* Applications
+* Nginx
+* Apache
+* Docker
+* Kubernetes
+* System logs
+* Databases
+
+Can also
+
+* Parse
+* Filter
+* Transform
+* Enrich
+
+before sending to Elasticsearch.
+
+---
+
+## Kibana
+
+Beautiful dashboards.
+
+Shows
+
+* Errors over time
+* CPU usage
+* Memory
+* Login attempts
+* Response time
+* Request count
+* Security events
+
+---
+
+# ECS vs EKS
+
+| Feature        | ECS               | EKS               |
+| -------------- | ----------------- | ----------------- |
+| AWS Native     | ✅                 | ✅                 |
+| Kubernetes     | ❌                 | ✅                 |
+| Complexity     | Easy              | High              |
+| Vendor Lock-in | High              | Low               |
+| Learning Curve | Low               | High              |
+| Cost           | Lower             | Higher            |
+| Best For       | Small/Medium Apps | Large Enterprises |
+| Certifications | AWS               | Kubernetes + AWS  |
+
+---
+
+# ECS vs Docker
+
+| Docker            | ECS                      |
+| ----------------- | ------------------------ |
+| Builds containers | Runs containers at scale |
+| Single machine    | Multiple machines        |
+| No auto healing   | Auto healing             |
+| No orchestration  | Full orchestration       |
+
+---
+
+# EKS vs Kubernetes
+
+| Kubernetes            | EKS                       |
+| --------------------- | ------------------------- |
+| Open source           | AWS managed               |
+| You manage everything | AWS manages control plane |
+| Install manually      | Ready to use              |
+| Works anywhere        | AWS only                  |
+
+---
+
+# ELK vs Prometheus
+
+| ELK               | Prometheus             |
+| ----------------- | ---------------------- |
+| Logs              | Metrics                |
+| Error analysis    | Performance monitoring |
+| Text search       | Time-series data       |
+| Kibana dashboards | Grafana dashboards     |
+
+---
+
+# Typical DevOps Architecture
+
+```
+Developer
+     │
+GitHub
+     │
+GitHub Actions / Jenkins
+     │
+Docker Build
+     │
+Push Image
+     │
+Amazon ECR
+     │
+Deploy
+     │
+ECS / EKS
+     │
+Running Containers
+     │
+Application Logs
+     │
+Logstash / Fluentd
+     │
+Elasticsearch
+     │
+Kibana Dashboard
+```
+
+---
+
+# Which should you learn first?
+
+| Order | Technology           | Why                                   |
+| ----- | -------------------- | ------------------------------------- |
+| 1     | Docker               | Foundation for containers             |
+| 2     | Amazon ECR           | Container image registry              |
+| 3     | ECS                  | Simplest managed orchestration on AWS |
+| 4     | Kubernetes           | Core orchestration concepts           |
+| 5     | EKS                  | Managed Kubernetes on AWS             |
+| 6     | Helm                 | Kubernetes package manager            |
+| 7     | Prometheus + Grafana | Monitoring and metrics                |
+| 8     | ELK / EFK Stack      | Centralized logging and log analysis  |
+| 9     | Argo CD              | GitOps continuous deployment          |
+
