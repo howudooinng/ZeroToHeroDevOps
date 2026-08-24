@@ -1,0 +1,158 @@
+#Understanding Configuration Management using ANSIBL
+
+Configuration Management is a way how a DevOps Engineer 
+Manages the Configuration of the Server or Infrastructure.
+
+
+Scenario --------------------------------------------------------
+
+Suppose there is a Suytem admininstrator.
+As a system admininstrator, ur company is using on - prem server
+
+50 on linux
+25 on cent os
+25 on ubuntu
+
+1) Upgrade
+2) Security Patches
+3) Default Installations -- like installing git on the server 
+   for every new server created.
+                            
+Supoose a team of 5 members, To do anything like 
+git installations on 100 servers, 
+it will be 20 servers per person and for 
+each server we will have to ssh to it and then perform the
+installation of git on it so that it can be commissioned for the 
+developers who needs the 100 servers.
+all is lot of manual work and is time taking
+
+So previously what was done to resolve this scenario,
+windows -- powershell
+linux -- shell script
+centos -- different script
+so it was technically getting very difficult for sys admins, 
+this was on - prem.
+
+and when it got moved to cloud, or a microservice based 
+architecture, the number of servers creation multiplied by 10X. 
+
+Now this is even a bigger problem to manage the configuration 
+for such a large amount of servers which were getting created.
+
+popular tools --> configuration Management
+
+Puppet,
+Chef,
+Redhat Ansible -> most no of users
+Why Ansible ? --> 
+Salt
+
+
+Architecture of Puppet Vs Ansible 
+
+Puppet                                   Ansible 
+
+Pull                                     Push
+Master Slave Architecture                Agentless Architecture
+Becomes tricky to manage                 Easy Support for Windows & Linux
+Need to learn new language for Puppet    Pretty Simple to understand(yaml manifest, global acceptance)
+                                  
+
+
+What is this Push and Pull mechanism model?
+
+Scenario-----------------------------------------------------
+
+--> Suppose, There is a DevOps Engineer who Manages the AWS 
+configuration of an organization who has created
+10 EC2 instances and his responsibility is to manage 
+these 10 ec2 instances. 
+
+What does manage here means ?
+Suppose there is a requirement to install GIT on all the 
+ec2 servers which has been created by this DevOps
+engineer, so that it can be provisioned to the developers 
+who are joining the team.
+
+So this is a scenario where he can't manually run scripts 
+on all 10 ec2 servers by logging into each server and 
+manually installing GIT on each and every server.
+
+So he uses ANSIBLE which uses PUSH mechanism <--
+
+What is Push Mechanism? 
+
+DevOps Engineer can write his ANSIBLE playbook on his laptop 
+and execute the playbook. 
+The script will be exceuted and all the 10 ec2 instances 
+will be installed with GIT.
+
+ANSIBLE Uses a AGENTLESS Model which makes CM very easy.
+
+With ansible -- it's a agentless model, just put names of 
+these servers, on inventory file, 
+just put ip addresses(Public),
+just have password less authentication.
+Laptop should connect with ec2 instances without password.
+
+
+Puppet follows - configure master slave architecture.
+This DevOps Engineer, creates master node through which 10 ec2
+servers as slave are configured and then it can be updated.
+
+Why is this important functionailty provided by Ansible ?
+--> we work in dynamic enviroment, and we have to 
+scale up and scale down our servers. 
+
+Since we have to frequently scale up and scale down our 
+servers, so ansible is very important.
+
+
+Dynamic Inventory files in Ansible -->
+Ansible is capable of detecting new servers which gets created,
+on AWS and automatically ansible starts managing it with the 
+playbook instructions.
+
+
+
+Disadvantages for ANSIBLE :
+
+--> Not Very Good Support for Windows
+--> Debugging is Difficult
+--> Performance of ANSIBLE
+
+These are the areas where ansible can improve.
+The debug mode of ansible is not very good for the 
+developers to understand 
+
+We can write our own ansible modules.
+Ansible is written in Python.
+
+We can write modules for anisble, suppose configuring the 
+load modules, that can be shared using ansible galaxy.
+Any other application can use that module.
+
+Interview Questions --------------------------------------------
+
+1) What is the programming laguage ANSIBLE uses ?
+   -- Python is the language which was used to create ansible
+2) Does ansible supports windows or linux ?
+   -- Ansible supports both the linux(ssh) and windows(win rm)
+3) Difference between chef/puppet and ansible?
+4) Why do use ansible for Configuration Management?
+5) Is ansible Push or Pull mechanism?
+6) What language does Ansible uses for writing playbooks? --yaml
+7) Does Ansible supports all cloud providers ?
+   -- what matters to anisble is public ip address, ssh enabled?, 
+      does this ssh is enabled to connect your laptop to ansible.
+
+
+
+
+
+
+
+
+
+
+
