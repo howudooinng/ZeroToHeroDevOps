@@ -1,0 +1,61 @@
+This file is created to document the various types of issues or failures which I will face during my devops Journey.
+
+I was trying to commit my changes to remote but when I tried to push the changes to origin main, git gave the error,
+large files being commited, refer a link to store large files,
+
+RCA - on debugging I found that I was committing terraform provider files which was 700 mmb and git doesn't allow to commit such big files
+So I had to create .gitignore file which was not there previously and then I tried commiting again.
+
+# Terraform generated files and local state
+**/.terraform/
+**/*.tfstate
+**/*.tfstate.*
+**/*.tfvars
+mentioned these file in gitignore.
+
+but still I was facing issues that the index already has the changes and git was giving me that same error.
+
+-- had to remove the already tracked files from Git's index.
+I added .gitignore after I ran the commit, so that large file commit was still there in Git's Index which needs to be removed.
+
+-- Rewrite the commit hostiry to erase the large files from every past commit.
+even though I stopped tracking those large files, the old commits stll has the blobs and caused the push to fail.
+
+commands to perform above steps :
+# 1. Stop tracking the Terraform-generated files (keep them on disk)
+git rm -r --cached \
+  SETUP/terraform-aws-instances/.terraform \
+  SETUP/terraform-aws-instances/terraform.tfstate \
+  SETUP/terraform-aws-instances/terraform.tfstate.backup \
+  SETUP/terraform-aws-instances/terraform.tfvars
+
+# Stage the .gitignore file (created earlier) so the ignore rules are committed
+git add .gitignore
+
+# 2. Rewrite history to remove those files from every commit on main
+git filter-branch --force --index-filter '
+  git rm -r --cached --ignore-unmatch \
+    SETUP/terraform-aws-instances/.terraform \
+    SETUP/terraform-aws-instances/terraform.tfstate \
+    SETUP/terraform-aws-instances/terraform.tfstate.backup \
+    SETUP/terraform-aws-instances/terraform.tfvars
+' --prune-empty --tag-name-filter cat -- main
+
+# (Optional) Verify the large objects are no longer reachable
+git rev-list --objects main | grep -E 'terraform-provider-aws|\.terraform|terraform\.tfstate|terraform\.tfvars' || echo "No large files found in history"
+
+# Finally, push the cleaned history (requires force‑with‑lease because history changed)
+git push --force-with-lease origin main
+
+--force-with-lease is a safer alternative to --force when pushing to a remote branch.
+
+What it does: It allows you to overwrite the remote branch with your local history only if the 
+remote branch is exactly what you expect (i.e., no one else has pushed new commits since you last 
+fetched).
+
+How it works: Git checks the current tip of the remote branch against the value you have stored 
+locally (your “lease”). If they match, the push proceeds; if they don’t (meaning someone else has 
+pushed in the meantime), the push is rejected and you must fetch, re‑base/merge, and try again.
+Why use it: It prevents you from accidentally overwriting somebody else’s work that you haven’t 
+seen yet, while still letting you rewrite history when you know the remote hasn’t changed.
+
