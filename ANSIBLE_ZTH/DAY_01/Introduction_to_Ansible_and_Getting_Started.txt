@@ -1,0 +1,100 @@
+We are doing a Zero to Hero for Ansible with the help of Abhishek Veermalla's Youtube channel.
+It is going to be a  10 day course and all the Details are mentioned in the GITHUB repo mentioned :
+
+https://github.com/howudooinng/ansible-zero-to-hero.git
+
+Day 1: Introduction to Ansible and Getting Started
+
+Overview of Ansible: What is Ansible, its advantages, and why use it?
+Comparison with Shell and Python scripting for automation.
+Installing Ansible on different platforms.
+IDE(VS Code) and Plugin configuration.
+
+What is ansible ?
+
+Ansible is a configuration management tool.
+Features of ANSIBLE:
+
+Agent-Less Architecture - Low maintenance overhead by avoiding the installation of 
+additional software across IT infrastructure.
+
+Simplicity - Automation playbooks use straightforward YAML syntax for code that reads like 
+documentation. Ansible is also decentralized, using SSH with existing OS credentials to access 
+remote machines.
+
+Scalability and Flexibility - 
+Easily and quickly scale the systems you automate through a modular design that supports a large 
+range of operating systems, cloud platforms, and network devices.
+
+Idempotence and Predictability - 
+When the system is in the state your playbook describes, Ansible does not change anything, 
+even if the playbook runs multiple times.
+
+Configuration management was done by sysadmins and earlier the management of resources was a 
+very tough task.
+
+Many tools came and tried to solve the problem, like chef, puppet but these tools had a specific 
+syntax and scripts in these tools were not that easy to write as there was a learning curve 
+associated with these tools.
+
+Why Ansible?
+Just need to know YAML, and it is very common templating language, and you can write the playbooks in YAML
+
+Agentless -- You don't need to install any softwares on the target machine.
+
+CONTROL node -- Machine on which ANSIBLE is installed.
+MANAGED node -- Machines on which config management needs to be done.
+
+Ansible can do other things such as an automation platforms:
+
+Config Management tool 
+Provisioning tool
+Deployment tool 
+Network Automation tool
+
+
+
+ANSIBLE vs SHELL_SCRIPTING vs PYTHON
+
+-- As a DevOps engineer, multiple options are there, and what to choose for the work needs to be addressed.
+
+Suppose to Install JAVA which approach to be used.
+
+User -- Managing 5 Vm's, to install JAVA on each VM's.
+
+Shell Scripting Approach -
+Shell script is written to install Java, and also if there are 10 steps to install some other tools as well.
+Logging in to VM's and then running the script but that script will not work on windows machine.
+So scripting is not a good option.
+
+Python Approach - 
+Python script can be used also here in this case, as it is platform independent,
+need to be good with Python programming, always update the script, maintaining the script.
+Update the script. Login to multiple machines and then run the python script. maintenance heavy approach.
+
+ANSIBLE approach - 
+Don't have to Login into the VM's.
+Create a machine as CONTROL node having ansible, install ansible.
+just tell that CONTROL node that these are my 100 vm's added to the inventory file, and 
+give instructions to install JAVA or any number of tasks. It will do parallely or sequentially, 
+without any human intervention.
+
+yaml is very easy to understand and it's not a programming language.
+
+Python Over Ansible --> when the task is to talk to the API's. 
+
+
+ANSIBLE is written in python.
+Control node and Managed node both should have python installed.
+
+
+
+
+
+
+
+
+
+
+
+
