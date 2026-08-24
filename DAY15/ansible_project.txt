@@ -1,0 +1,145 @@
+#Project to demonstrate configuration management with #the help of ANSIBLE tool
+
+
+need two server
+
+ansible server
+target server
+
+
+using ansible server, I will configure ansible server.
+
+ansible requires password less authentication.
+
+Install ansible - sudo apt install ansible
+
+ANSIBLE SERVER -- do ssh-keygen to generate public and private key.
+
+connect to TARGET server, Do ssh-keygen
+Now go to the authorized key of the TARGET server and paste the public key of ANSIBLE
+server, inside the authorized key of the TARGET server.
+
+Now ssh <Private ip of target server>, now both server will get connected among themselves.
+
+Now we can write playbooks to do changes or work on the target server from the Ansible server.
+
+Now Ansible server is ready to communicate with the target server in a passwordless
+authentication manner.
+
+Playbook--> What is a ansible playbook ?
+
+is it mandatory to write playbooks always ?
+
+How to run ansible adhoc commands ?
+inventory file - which stores the ip address of the target servers.
+ansible <inventory file location>
+
+ansible adhoc commands vs ansible playbook
+
+ansible modules
+
+store the inventory file in the directory of your server which is created.
+
+ansible -i inventory.ini -m "shell" -a "touch devops_ansible_class"
+
+The inventory file is necessary to exceute the ansible adhoc commands 
+
+Playbook is written only when there are many commands or tasks to be performed.
+
+
+There are 2 servers,
+dbservers,
+webservers
+
+USE case - run certain no of playbooks in dbservers 
+and other set on webservers.
+create that inside the inventory file 
+
+How do you group servers in ansible ?
+-- in ansible, everything is configured in the inventory
+file, all the server name and details,
+also we can do grouping of servers, and run ansible
+command to run on those particular server.
+
+
+Playbook.
+Scenario - We want to install and start nginx.
+
+we give "---" in the file, indicates that this is a yaml file
+then we can start writing the playbook.
+
+there can be sometimes when we want to run the playbook as root user
+so we can give the user as root in the playbook
+
+we can write multiple playbook also in one yml file
+
+- name: first playbook
+- name: second playbook
+
+yaml script:
+
+---
+- name: Install and start nginx
+  hosts: all
+  become:true
+
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+equivalent to 
+shell: apt install nginx
+
+we use the above format to write the playbook so that the script can be kept as generic.
+
+
+
+ansible-playbook -i inventory(file_name) <playbook-name>
+
+Keep the syntax in check for the ansible playbook yaml script
+will get errors due to indentations as per yaml syntax.
+
+-vvv --> use verbose to get additional infrmation what ansible is actually doing when we run the playbook
+
+we can also write our own ansible modules.
+
+Real Time Organization Scenarios:
+
+Create 3 ec2 instances on aws (Terraform) 
+And Configure one of those ec2 instances as Master and Configure other 2 Instances as Workers.
+(using ansible)
+
+It can be a huge yaml file, and the playbook can be very big.
+So ansible came up with ANSIBLE ROLES.
+
+Ansible Roles are efficient way to write complex playbooks, which help to create the playbook and maintains Readability also.
+Properly segregate and structure the playbook
+
+Why use ansible roles, because it can help write the ansible playbook in a very
+structured manner and in a most efficient way.
+
+ansible-galaxy role init kubernetes.
+running this command creates kubernetes folder which has the below data which gets created to help in writing the playbooks
+
+-rw-rw-r-- 1 ubuntu ubuntu 1328 Aug 20 17:55 README.md -- explain what this playbook is?
+drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 20 17:55 files
+drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 20 17:55 templates
+drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 20 17:55 handlers
+drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 20 17:55 meta
+drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 20 17:55 tasks -- write tasks here
+drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 20 17:55 defaults
+drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 20 17:55 tests
+drwxrwxr-x 2 ubuntu ubuntu 4096 Aug 20 17:55 vars
+
+
+Whenever you want to write some complicated playbooks, 
+what you would do is you will start using the 
+ansible galaxy command to create roles. 
+
+What happens if you create roles is you can write 
+structured and efficient ansible playbooks.
+
+need to explore more of ansible and update 
+
+
