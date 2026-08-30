@@ -198,6 +198,15 @@ chgrp
 tar — used for zip
 untar — used for unzip
 
+How to append a file using shell command ?
+
+# >> this command helps to append data in the source file and used with echo command 
+Example --
+echo INFRACLASS_REGION=$INFRACLASS_REGION >> ~/infraclass/config
+--> this command adds the INFRACLASS_REGION variable to the config file present in infraclass directory.
+
+# > this command helsp to override the data in the source file.
+
 
 How to copy a file/folder from one server to other  ?
 
