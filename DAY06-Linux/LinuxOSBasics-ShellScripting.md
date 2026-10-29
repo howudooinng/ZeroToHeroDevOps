@@ -362,26 +362,3 @@ mount /dev/nvme4n1 /mnt/tws_disk_mount/
 
 
 lvs, lvdisplay — these run inside lvm
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
