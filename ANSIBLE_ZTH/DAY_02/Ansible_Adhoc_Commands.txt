@@ -1,0 +1,74 @@
+Day 2: Ansible Adhoc Commands
+
+Passwordless Authentication
+Ansible Inventory
+Understanding Adhoc commands and their usage.
+Examples of common Adhoc commands for system management tasks.
+Exploring the power of Adhoc commands for quick tasks.
+
+
+Passwordless Authentication
+
+What it means and Why it is pre_requisite for ansible?
+
+CONTROL node has ansible installed also can be called as Master node,
+devops engineer provides instructions through playbook or ad-hoc commands.
+like installing nginx on MANAGED nodes.
+
+ANSIBLE tries to executes the instructions on all the managed nodes.
+But it gets blocked and asks for authentication.
+
+Vm's alsways requires authention.
+using password or ssh-key.
+
+ec2 by default blocks access through password.
+
+Ansible's understanding of how the control node gets connected to the target server.
+
+When we initially launch an EC2 instance, it creates a PEM key. The PEM key is used to launch 
+those instances. 
+Using the PEM key we can connect to the target server directly also using SSH but we don't have to do 
+that when we are using Ansible. When we are installing Ansible on a server, 
+it becomes a control node and that control node can be used to orchestrate the target nodes or the 
+managed nodes. Till there the concept is very clear.
+
+What I am now trying to make sure that I understand is how password-less authentication works on this 
+agentless architecture of Ansible. What is going on here is that initially, since I am learning 
+Ansible, I am using one or two servers. Initially what I am doing is just using the SSH copy ID, 
+which copies my PEM key from my EC2 control node(the pem key should be present on the ec2 server) 
+instance to the target managed node instance. This SSH copy ID just copies the key there and when 
+I am directly doing SSH <the public IP address of the target node> through my control server 
+it directly connects to the target server. This process is called bootstrapping the target server.
+
+In an EC2 instance we also have a way to create the public and private key using SSH keygen. 
+Initially when we are connecting to the server, we can use the PEM key but at the enterprise level it 
+is not advised to connect through the PEM key. 
+
+We use the SSH keygen so after we bootstrap it using the pem.key first time we can again use the 
+SSH copy ID to move the control node's SSH keygen public key to the authorized_key folder of the 
+target node and then connect  using that key. That is a standard practice which happens through 
+Ansible and that is all about the password-less authentication of Ansible so don't get confused. 
+The path should be very correct for what path I am using for the keys. 
+That becomes very confusing so let's not get confused in the path thing. 
+It is very simple and it is very easy to understand what is happening there.
+
+ssh-copy-id command:
+ssh-copy-id -f -o IdentityFile=~/ansible_demo.pem ubuntu@44.200.234.152
+
+
+How to connect with the password if the virtual machine allows it?
+
+for AWS, we need to follow a separate process to do this password authentication setup.
+
+sudo vim /etc/ssh/sshd_config.d/60-cloudimg-settings.conf 
+
+PasswordAuthentication no to yes
+
+Need to create Password using the below command:
+sudo passwd ubuntu
+
+
+
+
+
+

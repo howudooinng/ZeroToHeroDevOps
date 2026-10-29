@@ -1,0 +1,13 @@
+Introduction to Computer Networks.
+ 
+History of Computer Networks :
+during cold war, the research for internet started and then we go the Internet, US military was 
+using this internet,
+UCLA and Stanford, system crashed -- login , "LO".
+
+ARPANET - limited for research and universities, and armies started using it.
+
+1983's - system was adopted and TCP/iP protocol was introduced. A common set of standards
+
+CN - communication between two nodes to share resources was called as internet
+

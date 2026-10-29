@@ -1,0 +1,20 @@
+There are 4 layers:
+
+Hardware    - keyboard, mouse, etc..
+kernel      - core of the OS, talks to hardware, cpu management 
+Shell/CLI   - used to inetaract with OS, bash, zsh
+Application - node.js, browsers, we talk to os, and then os interacts with the hardware 
+
+linux is a kernel,
+ubuntu, debian, centos -- distributions of linux
+ 
+Fast, secure, free and extremely scalable
+
+
+Terminal vs Shell vs Kernel
+
+Terminal is just a display.
+Shell talks to Kernel and talks to os
+Kernel executes our commands through hardware
+
+
